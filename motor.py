@@ -51,10 +51,10 @@ def motor(p1, p2, t):
 	"""
 
 	GPIO.output(p1, GPIO.HIGH)
-   	GPIO.output(p2, GPIO.HIGH)
-    # print("Moving motor {}".format(motor))
-    time.sleep(t) # must calibrate for the specific time
-    GPIO.cleanup()
+	GPIO.output(p2, GPIO.HIGH)
+	# print("Moving motor {}".format(motor))
+	time.sleep(t) # must calibrate for the specific time
+	GPIO.cleanup()
 
 def main():
 	"""Main function, responsable for setting all the pins and passing 2 pins to control the motor
