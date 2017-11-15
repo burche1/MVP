@@ -28,6 +28,12 @@ def set():
     pin7 = 16
     pin8 = 18
     pin9 = 22
+<<<<<<< HEAD
+=======
+    pin10 = 16
+    pin11 = 18
+    pin12 = 22
+>>>>>>> 3134ad44e2ae4e331954ea713cef53cc01ffd19b
 
     GPIO.setup(pin1, GPIO.OUT)
     GPIO.setup(pin2, GPIO.OUT)
@@ -38,6 +44,12 @@ def set():
     GPIO.setup(pin7, GPIO.OUT)
     GPIO.setup(pin8, GPIO.OUT)
     GPIO.setup(pin9, GPIO.OUT)
+<<<<<<< HEAD
+=======
+    GPIO.setup(pin10, GPIO.OUT)
+    GPIO.setup(pin11, GPIO.OUT)
+    GPIO.setup(pin12, GPIO.OUT)
+>>>>>>> 3134ad44e2ae4e331954ea713cef53cc01ffd19b
 
 def motor(p1, p2, t):
     """ Moving some specific motor for t seconds
@@ -51,6 +63,7 @@ def motor(p1, p2, t):
     """
 
     GPIO.output(p1, GPIO.HIGH)
+<<<<<<< HEAD
    GPIO.output(p2, GPIO.HIGH)
 	# Setting pins
 	# TODO: check the pins
@@ -87,6 +100,9 @@ def motor(p1, p2, t):
 
     GPIO.output(p1, GPIO.HIGH)
    	GPIO.output(p2, GPIO.HIGH)
+=======
+    GPIO.output(p2, GPIO.HIGH)
+>>>>>>> 3134ad44e2ae4e331954ea713cef53cc01ffd19b
     # print("Moving motor {}".format(motor))
     time.sleep(t) # must calibrate for the specific time
     GPIO.cleanup()
@@ -104,6 +120,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+<<<<<<< HEAD
 	"""Main function, responsable for setting all the pins and passing 2 pins to control the motor
 	Parameters:
 	-----------
@@ -116,3 +133,5 @@ if __name__ == "__main__":
 
 if __name__ == "__main__":
 	main()
+=======
+>>>>>>> 3134ad44e2ae4e331954ea713cef53cc01ffd19b
