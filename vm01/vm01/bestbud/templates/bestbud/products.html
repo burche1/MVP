@@ -1,0 +1,386 @@
+{% extends 'base.html' %}
+
+		{% block head %}
+
+			<title>Home</title>
+
+		{% endblock %}
+
+
+
+		{% block body %}
+    <script>
+      window.setTimeout(function(){
+        window.location.href = "../../";
+      }, 3000);
+    </script>
+
+		<style>
+		img {
+    max-width: 100%;
+    height: auto;
+}
+.qtd{
+	border:0 none;
+	color:#000000;
+	margin:0 13px 0 0;
+	text-align:center;
+	width:50px;
+}
+.button {
+	display: inline-block;
+	padding: 15px 25px;
+	font-size: 24px;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+	color: #fff;
+	background-color: #4CAF50;
+	border: none;
+	border-radius: 15px;
+	box-shadow: 0 2px #999;
+}
+		.button:hover {background-color: #3e8e41}
+
+		.button:active {
+		  background-color: #3e8e41;
+		  box-shadow: 0 2px #666;
+		  transform: translateY(2px);
+		}
+		* {
+    box-sizing: border-box;
+}
+.header {
+		overflow: hidden;
+		padding: 10px;
+		//border: 1px solid red;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		background-color: pink;
+}
+.main {
+  margin-top: 60px;
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+[class*="col-"] {
+    float: left;
+		//border: 1px solid red;
+		padding: 3px;
+}
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+</style>
+<script>
+function add(id)
+{
+	var p = document.getElementById(id).value;
+	document.getElementById(id).value = Number(p)+Number(1);
+}
+function sub(id)
+{
+	var p = document.getElementById(id).value;
+	if(p>0){
+		document.getElementById(id).value = Number(p)-Number(1);
+	}
+}
+{% load static %}
+</script>
+<body bgcolor=#FFFFFF>
+<div class='header'>
+<div class='col-2'><button class='button'>Voltar</button></div>
+<div class='col-8' align='center'><font size="6" align='center'>Produtos</font></div>
+<div class='col-2' align='right'><button class='button'>Comprar</button></div>
+</div>
+<div class='main'>
+<div class='row'>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p1.id)'>-</button>
+		<input type='text' class='qtd' id='p1' value='0' size='3' readonly>
+		<button class='button'onClick='add(p1.id)'>+</button>
+	</center>
+	</div>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p2.id)'>-</button>
+		<input type='text' class='qtd' id='p2' value='0' size='3' readonly>
+		<button class='button'onClick='add(p2.id)'>+</button>
+	</center>
+	</div>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p3.id)'>-</button>
+		<input type='text' class='qtd' id='p3' value='0' size='3' readonly>
+		<button class='button'onClick='add(p3.id)'>+</button>
+	</center>
+	</div>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p4.id)'>-</button>
+		<input type='text' class='qtd' id='p4' value='0' size='3' readonly>
+		<button class='button'onClick='add(p4.id)'>+</button>
+	</center>
+	</div>
+</div>
+<div class='row'>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p5.id)'>-</button>
+		<input type='text' class='qtd' id='p5' value='0' size='3' readonly>
+		<button class='button'onClick='add(p5.id)'>+</button>
+	</center>
+	</div>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p6.id)'>-</button>
+		<input type='text' class='qtd' id='p6' value='0' size='3' readonly>
+		<button class='button'onClick='add(p6.id)'>+</button>
+	</center>
+	</div>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p7.id)'>-</button>
+		<input type='text' class='qtd' id='p7' value='0' size='3' readonly>
+		<button class='button'onClick='add(p7.id)'>+</button>
+	</center>
+	</div>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p8.id)'>-</button>
+		<input type='text' class='qtd' id='p8' value='0' size='3' readonly>
+		<button class='button'onClick='add(p8.id)'>+</button>
+	</center>
+	</div>
+</div>
+<div class='row'>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p9.id)'>-</button>
+		<input type='text' class='qtd' id='p9' value='0' size='3' readonly>
+		<button class='button'onClick='add(p9.id)'>+</button>
+	</center>
+	</div>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p10.id)'>-</button>
+		<input type='text' class='qtd' id='p10' value='0' size='3' readonly>
+		<button class='button'onClick='add(p10.id)'>+</button>
+	</center>
+	</div>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p11.id)'>-</button>
+		<input type='text' class='qtd' id='p11' value='0' size='3' readonly>
+		<button class='button'onClick='add(p11.id)'>+</button>
+	</center>
+	</div>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p12.id)'>-</button>
+		<input type='text' class='qtd' id='p12' value='0' size='3' readonly>
+		<button class='button'onClick='add(p12.id)'>+</button>
+	</center>
+	</div>
+</div>
+<div class='row'>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p13.id)'>-</button>
+		<input type='text' class='qtd' id='p13' value='0' size='3' readonly>
+		<button class='button'onClick='add(p13.id)'>+</button>
+	</center>
+	</div>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p14.id)'>-</button>
+		<input type='text' class='qtd' id='p14' value='0' size='3' readonly>
+		<button class='button'onClick='add(p14.id)'>+</button>
+	</center>
+	</div>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p15.id)'>-</button>
+		<input type='text' class='qtd' id='p15' value='0' size='3' readonly>
+		<button class='button'onClick='add(p15.id)'>+</button>
+	</center>
+	</div>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p16.id)'>-</button>
+		<input type='text' class='qtd' id='p16' value='0' size='3' readonly>
+		<button class='button'onClick='add(p16.id)'>+</button>
+	</center>
+	</div>
+</div>
+<div class='row'>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p17.id)'>-</button>
+		<input type='text' class='qtd' id='p17' value='0' size='3' readonly>
+		<button class='button'onClick='add(p17.id)'>+</button>
+	</center>
+	</div>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p18.id)'>-</button>
+		<input type='text' class='qtd' id='p18' value='0' size='3' readonly>
+		<button class='button'onClick='add(p18.id)'>+</button>
+	</center>
+	</div>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p19.id)'>-</button>
+		<input type='text' class='qtd' id='p19' value='0' size='3' readonly>
+		<button class='button'onClick='add(p19.id)'>+</button>
+	</center>
+	</div>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p20.id)'>-</button>
+		<input type='text' class='qtd' id='p20' value='0' size='3' readonly>
+		<button class='button'onClick='add(p20.id)'>+</button>
+	</center>
+	</div>
+</div>
+<div class='row'>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p21.id)'>-</button>
+		<input type='text' class='qtd' id='p21' value='0' size='3' readonly>
+		<button class='button'onClick='add(p21.id)'>+</button>
+	</center>
+	</div>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p22.id)'>-</button>
+		<input type='text' class='qtd' id='p22' value='0' size='3' readonly>
+		<button class='button'onClick='add(p22.id)'>+</button>
+	</center>
+	</div>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p23.id)'>-</button>
+		<input type='text' class='qtd' id='p23' value='0' size='3' readonly>
+		<button class='button'onClick='add(p23.id)'>+</button>
+	</center>
+	</div>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p24.id)'>-</button>
+		<input type='text' class='qtd' id='p24' value='0' size='3' readonly>
+		<button class='button'onClick='add(p24.id)'>+</button>
+	</center>
+	</div>
+</div>
+<div class='row'>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p25.id)'>-</button>
+		<input type='text' class='qtd' id='p25' value='0' size='3' readonly>
+		<button class='button'onClick='add(p25.id)'>+</button>
+	</center>
+	</div>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p26.id)'>-</button>
+		<input type='text' class='qtd' id='p26' value='0' size='3' readonly>
+		<button class='button'onClick='add(p26.id)'>+</button>
+	</center>
+	</div>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p27.id)'>-</button>
+		<input type='text' class='qtd' id='p27' value='0' size='3' readonly>
+		<button class='button'onClick='add(p27.id)'>+</button>
+	</center>
+	</div>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p28.id)'>-</button>
+		<input type='text' class='qtd' id='p28' value='0' size='3' readonly>
+		<button class='button'onClick='add(p28.id)'>+</button>
+	</center>
+	</div>
+</div>
+<div class='row'>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p29.id)'>-</button>
+		<input type='text' class='qtd' id='p29' value='0' size='3' readonly>
+		<button class='button'onClick='add(p29.id)'>+</button>
+	</center>
+	</div>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p30.id)'>-</button>
+		<input type='text' class='qtd' id='p30' value='0' size='3' readonly>
+		<button class='button'onClick='add(p30.id)'>+</button>
+	</center>
+	</div>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p31.id)'>-</button>
+		<input type='text' class='qtd' id='p31' value='0' size='3' readonly>
+		<button class='button'onClick='add(p31.id)'>+</button>
+	</center>
+	</div>
+	<div class='col-3'>
+		<center>
+		<img src={% static "images/fausto61.png" %} width=200>
+		<br><button class='button'onClick='sub(p32.id)'>-</button>
+		<input type='text' class='qtd' id='p32' value='0' size='3' readonly>
+		<button class='button'onClick='add(p32.id)'>+</button>
+	</center>
+	</div>
+</div>
+</div>
+	</body>
+<br>
+		{% endblock %}
