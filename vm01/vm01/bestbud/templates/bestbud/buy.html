@@ -36,10 +36,15 @@
 </style>
 
 		<body bgcolor=#FFFFFF>
-		<center><h1>Bem vindo a Best Bud!</h1><br>
-
-			<button id="init" class="button" onClick="window.location.href='./check_age/'">INICIAR</button></center>
-
+			<center><h1>Detalhes da compra</h1></center><br>
+			<ul>
+			{% for compra in compras %}
+			<li>{{compra}}</li>
+			{% endfor %}
+		</ul>
+		<center>
+			<button id="init" class="button" onClick="window.location.href='./check_age/'">Finalizar Compra</button></center>
+		</center>
 	</body>
 <br>
 		{% endblock %}
