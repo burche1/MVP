@@ -44,7 +44,7 @@
 		<center><h1>Para realizar nossas compras é necessário ser maior de idade. <br>
 			Por favor, confirme clicando em nosso botão! {{ flag }}</h1><br>
 
-			<button id="init" class="button" onClick="window.location.href='./produtos'">Sou maior de 18 anos</button></center>
+			<button id="init" class="button" onClick="{window.location.href='{% url 'produtos' %}'}">Sou maior de 18 anos</button></center>
 	</body>
 <br>
 		{% endblock %}
