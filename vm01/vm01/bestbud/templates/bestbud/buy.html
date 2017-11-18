@@ -116,27 +116,31 @@ function sub(pid,qid,ptid,totalid)
 	<div class='col-8' align='center'><font size="6" align='center'>Detalhes da Compra</font></div>
 	<div class='col-2' align='right'></div>
 	</div>
+	<form action='{% url 'thanks' %}' method='post'>
+		{% csrf_token %}
 	<div class='main'>
 	<div class='row'>
 		<div class='col-12'>
 			<ul>
 			{% for compra in compras %}
-			<li>{{compra.name}}:<br>
+			<li><input type='text' class='qtd' name='nome' id='n' value='{{compra.name}}' size='3' readonly>:<br>
 			Qtd: <button type='button' class='button'onClick='sub(p{{forloop.counter}}.id,q{{forloop.counter}}.id,pt{{forloop.counter}}.id,total.id)'>-</button>
-					 <input type='text' class='qtd' name='prod' id='q{{forloop.counter}}' value='{{compra.qtd}}' size='3' readonly>
+					 <input type='text' class='qtd' name='qtde' id='q{{forloop.counter}}' value='{{compra.qtd}}' size='3' readonly>
 					 <button type='button' class='button'onClick='add(p{{forloop.counter}}.id,q{{forloop.counter}}.id,pt{{forloop.counter}}.id,total.id)'>+</button>
-			Preço unitário: <input type='text' class='qtd' name='prod' id='p{{forloop.counter}}' value='{{compra.price}}' size='3' readonly>
-			Preço total: <input type='text' class='qtd' name='prod' id='pt{{forloop.counter}}' value='{{compra.ptotal}}' size='3' readonly>
+			Preço unitário: <input type='text' class='qtd' name='preco' id='p{{forloop.counter}}' value='{{compra.price}}' size='3' readonly>
+			Preço total: <input type='text' class='qtd' name='precototal' id='pt{{forloop.counter}}' value='{{compra.ptotal}}' size='3' readonly>
 		</li>
 			{% endfor %}
 		</ul>
 		<center>
-			<font size=3>Preço final: </font><input type='text' class='qtd' name='prod' id='total' value='{{total}}' size='3' readonly><br>
-			<button id="init" class="button" onClick="window.location.href='{% url 'thanks' %}'">Finalizar Compra</button></center>
+			<font size=3>Preço final: </font><input type='text' class='qtd' name='ntotal' id='total' value='{{total}}' size='3' readonly><br>
+			<input type='submit' class='button' value='Finalizar Compra' /></center>
 		</center>
 	</div>
 </div>
 </div>
+</form>
+
 	</body>
 <br>
 		{% endblock %}

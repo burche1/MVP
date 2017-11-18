@@ -9,7 +9,7 @@ urlpatterns = [
     #url(r'^boas-vindas/$', views.boas_vindas, {'template_name': 'bestbud/boas-vindas.html'}, name='boas-vindas'),
     url(r'^produtos/$', views.produtos, name='produtos'),
     url(r'^buy/$', views.buy, name='buy'),
-    url(r'^thanks/$', views.buy, name='thanks'),
+    url(r'^thanks/$', views.thanks, name='thanks'),
 
 
 ]
