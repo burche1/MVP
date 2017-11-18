@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from bestbud.watchdog import Watchdog
+from bestbud.models import Product,Purchase
 import time
 import numpy as np
 # Create your views here.
@@ -31,22 +32,46 @@ def check_age(request):
 
 #def check_age(request):
 #    return render(request, 'bestbud/check_age.html')
+class Produto(object):
+    name = ''
+    price = ''
+    logo = ''
+    def __init__(self, name, price, logo):
+        self.name = name
+        self.logo = logo
+        self.price = price
+class Compra(object):
+    name = ''
+    price = ''
+    qtd = ''
+    ptotal = ''
+    def __init__(self, name, price, qtd, ptotal):
+        self.name = name
+        self.qtd = qtd
+        self.price = price
+        self.ptotal = ptotal
 
 def produtos(request):
-    return render(request, 'bestbud/products.html')
+    produtos = []
+    for produto in Product.objects.all():
+        produtos.append(Produto(name = (produto.name),price=(produto.price),logo=('/' + (produto.logo.url.split('/', 1)[1]))))
+    context = {'produtos': produtos}
+    return render(request, 'bestbud/products.html', context)
 
 def buy(request):
-    produtos = request.POST.getlist('prod')
-    lista = ['CocaCola', 'Pepsi', 'Soda', 'Guarana',
-    'CocaCola', 'Pepsi', 'Soda', 'Guarana',
-    'CocaCola', 'Pepsi', 'Soda', 'Guarana',
-    'CocaCola', 'Pepsi', 'Soda', 'Guarana',
-    'CocaCola', 'Pepsi', 'Soda', 'Guarana',
-    'CocaCola', 'Pepsi', 'Soda', 'Guarana',
-    'CocaCola', 'Pepsi', 'Soda', 'Guarana',
-    'CocaCola', 'Pepsi', 'Soda', 'Guarana']
+    produtos_comprados = request.POST.getlist('prod')
+    produtos = []
+    for produto in Product.objects.all():
+        produtos.append(Produto(name = (produto.name),price=(produto.price),logo=('/' + (produto.logo.url.split('/', 1)[1]))))
+    if len(produtos_comprados)==0:
+        return render(request, 'bestbud/thanks.html')
     compras = []
-    for i in range(32):
-        if int(produtos[i])>0:
-            compras.append('Produto %s: %d' % (lista[i],int(produtos[i])))
-    return render(request, 'bestbud/buy.html', {'compras': compras})
+    total = 0
+    for i in range(len(Product.objects.all())):
+        if int(produtos_comprados[i])>0:
+            total = total + (float(produtos[i].price) * float(produtos_comprados[i]))
+            compras.append(Compra(name=(produtos[i].name),price=(produtos[i].price),qtd=(produtos_comprados[i]),ptotal=('%.2f' % (float(produtos[i].price)*float(produtos_comprados[i])))))
+    return render(request, 'bestbud/buy.html', {'compras': compras, 'total': ('%.2f' % total)})
+
+def thanks(request):
+    return render(request, 'bestbud/thanks.html')

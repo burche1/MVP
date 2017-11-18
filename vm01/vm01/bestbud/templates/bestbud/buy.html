@@ -86,7 +86,30 @@
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
 </style>
-
+<script>
+function add(pid,qid,ptid,totalid)
+{
+	var p = document.getElementById(pid).value;
+	var q = document.getElementById(qid).value;
+	var pt= document.getElementById(ptid).value;
+	var total=document.getElementById(totalid).value;
+	document.getElementById(qid).value = Number(q)+Number(1);
+	document.getElementById(ptid).value = (Number(pt) + Number(p)).toFixed(2);
+	document.getElementById(totalid).value = (Number(total) + Number(p)).toFixed(2);
+}
+function sub(pid,qid,ptid,totalid)
+{
+	var p = document.getElementById(pid).value;
+	var q = document.getElementById(qid).value;
+	var pt= document.getElementById(ptid).value;
+	var total=document.getElementById(totalid).value;
+	if(q>0){
+		document.getElementById(qid).value = Number(q)-Number(1);
+		document.getElementById(ptid).value = (Number(pt) - Number(p)).toFixed(2);
+		document.getElementById(totalid).value = (Number(total) - Number(p)).toFixed(2);
+	}
+}
+</script>
 	<body bgcolor=#FFFFFF>
 	<div class='header'>
 	<div class='col-2'><button type='button' class='button' onClick='window.history.back()'>Voltar</button></div>
@@ -98,11 +121,18 @@
 		<div class='col-12'>
 			<ul>
 			{% for compra in compras %}
-			<li>{{compra}}</li>
+			<li>{{compra.name}}:<br>
+			Qtd: <button type='button' class='button'onClick='sub(p{{forloop.counter}}.id,q{{forloop.counter}}.id,pt{{forloop.counter}}.id,total.id)'>-</button>
+					 <input type='text' class='qtd' name='prod' id='q{{forloop.counter}}' value='{{compra.qtd}}' size='3' readonly>
+					 <button type='button' class='button'onClick='add(p{{forloop.counter}}.id,q{{forloop.counter}}.id,pt{{forloop.counter}}.id,total.id)'>+</button>
+			Preço unitário: <input type='text' class='qtd' name='prod' id='p{{forloop.counter}}' value='{{compra.price}}' size='3' readonly>
+			Preço total: <input type='text' class='qtd' name='prod' id='pt{{forloop.counter}}' value='{{compra.ptotal}}' size='3' readonly>
+		</li>
 			{% endfor %}
 		</ul>
 		<center>
-			<button id="init" class="button" onClick="window.location.href='./check_age/'">Finalizar Compra</button></center>
+			<font size=3>Preço final: </font><input type='text' class='qtd' name='prod' id='total' value='{{total}}' size='3' readonly><br>
+			<button id="init" class="button" onClick="window.location.href='{% url 'thanks' %}'">Finalizar Compra</button></center>
 		</center>
 	</div>
 </div>
