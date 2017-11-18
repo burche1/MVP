@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from bestbud.watchdog import Watchdog
 from bestbud.models import Product,Purchase
+from django.utils import timezone
 import time
 import numpy as np
 # Create your views here.
@@ -63,8 +64,6 @@ def buy(request):
     produtos = []
     for produto in Product.objects.all():
         produtos.append(Produto(name = (produto.name),price=(produto.price),logo=('/' + (produto.logo.url.split('/', 1)[1]))))
-    if len(produtos_comprados)==0:
-        return render(request, 'bestbud/thanks.html')
     compras = []
     total = 0
     for i in range(len(Product.objects.all())):
@@ -74,4 +73,15 @@ def buy(request):
     return render(request, 'bestbud/buy.html', {'compras': compras, 'total': ('%.2f' % total)})
 
 def thanks(request):
+    names = request.POST.getlist('nome')
+    qtds = request.POST.getlist('qtde')
+    prices = request.POST.getlist('preco')
+    totalprices = request.POST.getlist('precototal')
+    if (len(Purchase.objects.all())==0):
+        purchase_ident = 0
+    else:
+        purchase_ident = int(Purchase.objects.latest('id').purchase_id) + 1
+    for i in range(len(names)):
+        q = Purchase(name=(names[i]),price=(prices[i]),total_price=totalprices[i],qtd=qtds[i],purchase_id=purchase_ident,date=timezone.now())
+        q.save()
     return render(request, 'bestbud/thanks.html')
