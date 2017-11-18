@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+		{% block head %}
+
+			<title>Agradecimento</title>
+
+		{% endblock %}
+
+
+
+		{% block body %}
+
+    <script>
+      window.setTimeout(function(){
+        window.location.href = "../";
+      }, 1000);
+    </script>
+
+		<style>
+		.button {
+		  display: inline-block;
+		  padding: 15px 25px;
+		  font-size: 24px;
+		  cursor: pointer;
+		  text-align: center;
+		  text-decoration: none;
+		  outline: none;
+		  color: #fff;
+		  background-color: #4CAF50;
+		  border: none;
+		  border-radius: 15px;
+		  box-shadow: 0 2px #999;
+		}
+
+		.button:hover {background-color: #3e8e41}
+
+		.button:active {
+		  background-color: #3e8e41;
+		  box-shadow: 0 2px #666;
+		  transform: translateY(2px);
+		}
+</style>
+		<body bgcolor=#FFFFFF>
+		<center><h1>Obrigado pela compra! Volte Sempre!</h1></center>
+	</body>
+<br>
+		{% endblock %}
